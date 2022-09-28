@@ -178,10 +178,20 @@
           <div style="display: flex;padding:10px;">
             <div>Do you already use a EKS cluster ?</div>
             <div id="IfEKSCluster"> 
-              <input type="radio" id="useEKS" name="useEKS" value="0">
-  <label for="!useEKS">Yes</label>
-  <input type="radio" id="!useEKS" name="!useEKS" value="72.0000">
-  <label for="!useEKS">No</label><br>  </div>
+              <div>
+                <div class="selecotr-item">
+                    <input type="radio" id="radioo3" name="selectorr" class="selector-item_radio" checked>
+                    <label for="radioo3" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
+                    <input type="radio" id="radioo4" name="selectorr" class="selector-item_radio">
+                    <label for="radioo4" class="selector-item_label">No &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                </div>
+              </div>
+              <div id="EKSPrice">
+                  0.0000
+              </div>
+    
+            
+            </div>
           </div>
           <div style="display: flex;padding:10px;">
             <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
@@ -275,8 +285,11 @@ const toggleYess = document.getElementById('Yess');
 const toggleNoo = document.getElementById('Noo');
 const activeHours = document.getElementById('activeHours');
 const ELBPrice = document.getElementById('ELBPrice');
+const EKSPrice = document.getElementById('EKSPrice');
 let radio1 = document.getElementById("radio1");
 let radio2 = document.getElementById("radio2");
+let radio3 = document.getElementById("radioo3");
+let radio4 = document.getElementById("radioo4");
 let calculateCost;
 
 const instanceTypes = getData('./spot.json').then((response) => {
@@ -377,6 +390,7 @@ activeHours.addEventListener('input',()=>{
 
 
 radio1.addEventListener('click',()=>{
+  ELBPrice.innerHTML = 0
 addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
@@ -384,10 +398,26 @@ serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
 })
 radio2.addEventListener('click',()=>{
   ELBPrice.innerHTML = 25000
-  addtnlCost.innerHTML = 25000
+  addtnlCost.innerHTML = Number(addtnlCost.textContent) +  25000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 
   serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+})
+
+radio3.addEventListener('click',()=>{
+  EKSPrice.innerHTML = 0
+  addtnlCost.innerHTML = Number(addtnlCost.textContent) - 72000
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+
+})
+radio4.addEventListener('click',()=>{
+  EKSPrice.innerHTML = 72000
+  addtnlCost.innerHTML = Number(addtnlCost.textContent) + 72000
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
 
 })
 
