@@ -152,3 +152,16 @@ select::-ms-expand {
 #totalCost {
   margin-left: 74%;
 }
+#IfExstingLoadBalancer {
+  display: flex;
+}
+#IfEKSCluster{
+  display: flex;
+}
+#EKSPrice{
+  margin-left:74%;
+}
+#ELBPrice{
+  margin-left:74%;
+ 
+}
