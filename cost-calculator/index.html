@@ -354,12 +354,12 @@ const instanceTypes = getData('./spot.json').then((response) => {
   
   // });
   dbStorageForCT.addEventListener('input',()=>{
-    additionalStorageCost.innerHTML  = (storageClass.value *(dbStorageForCT.value +(noOfSVC.value * dbStoragePerMicrSvc.value))).toFixed(4);
+    additionalStorageCost.innerHTML  = Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)));
     totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
     })
 
     dbStoragePerMicrSvc.addEventListener('input',()=>{
-        additionalStorageCost.innerHTML  = (storageClass.value *(dbStorageForCT.value +(noOfSVC.value * dbStoragePerMicrSvc.value))).toFixed(4);
+      additionalStorageCost.innerHTML  = Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)));
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       
     })
