@@ -354,18 +354,18 @@ const instanceTypes = getData('./spot.json').then((response) => {
   
   // });
   dbStorageForCT.addEventListener('input',()=>{
-    additionalStorageCost.innerHTML  = Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)));
+    additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
     totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
     })
 
     dbStoragePerMicrSvc.addEventListener('input',()=>{
-      additionalStorageCost.innerHTML  = Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)));
+      additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       
     })
   noOfSVC.addEventListener('input',()=>{
       
-      additionalStorageCost.innerHTML  = (storageClass.value *(dbStorageForCT.value +(noOfSVC.value * dbStoragePerMicrSvc.value))).toFixed(4);
+    additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
       noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1)
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
     })
@@ -391,14 +391,14 @@ activeHours.addEventListener('input',()=>{
 
 radio1.addEventListener('click',()=>{
   ELBPrice.innerHTML = 0
-addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25000
+addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25.0000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
 
 })
 radio2.addEventListener('click',()=>{
-  ELBPrice.innerHTML = 25000
-  addtnlCost.innerHTML = Number(addtnlCost.textContent) +  25000
+  ELBPrice.innerHTML = (25.0000).toFixed(4)
+  addtnlCost.innerHTML = Number(addtnlCost.textContent) +  25.0000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 
   serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
@@ -407,15 +407,15 @@ totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOf
 
 radio3.addEventListener('click',()=>{
   EKSPrice.innerHTML = 0
-  addtnlCost.innerHTML = Number(addtnlCost.textContent) - 72000
+  addtnlCost.innerHTML = (Number(addtnlCost.textContent) - 72.0000).toFixed(4)
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
 
 
 })
 radio4.addEventListener('click',()=>{
-  EKSPrice.innerHTML = 72000
-  addtnlCost.innerHTML = Number(addtnlCost.textContent) + 72000
+  EKSPrice.innerHTML = (72.0000).toFixed(4)
+  addtnlCost.innerHTML = (Number(addtnlCost.textContent) + 72.0000).toFixed(4)
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
 
@@ -435,7 +435,7 @@ serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
       ).toFixed(4);
 
       workerNodePriceEl.innerHTML = ((Number(workerNodePrice) * Number(activeHours.value)) + (Number(storageClass.value) * Number(nodeDiskInGBEl.value))).toFixed(4);
-      additionalStorageCost.innerHTML  = Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)));
+      additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
       noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1);
 // console.log(masterNodePriceEl.textContent,noOfWorkerNodesRq.textContent,workerNodePriceEl.textContent,additionalStorageCost.textContent)
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
