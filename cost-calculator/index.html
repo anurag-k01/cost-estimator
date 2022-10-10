@@ -429,7 +429,7 @@ const instanceTypes = getData('./spot.json').then((response) => {
   noOfSVC.addEventListener('input',()=>{
       
     additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
-      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1)
+      noOfWorkerNodesRq.innerHTML = Math.ceil(noOfSVC.value/actual.value).toFixed(1)
      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       totalCostAnnual.innerHTML = ((Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)) * 12).toFixed(4)
     })
@@ -505,7 +505,7 @@ serviceCostAnnual.innerHTML = ((totalCost.textContent/noOfSVC.value)*12).toFixed
 
       workerNodePriceEl.innerHTML = ((Number(workerNodePrice) * Number(activeHours.value)) + (Number(storageClass.value) * Number(nodeDiskInGBEl.value))).toFixed(4);
       additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
-      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1);
+      noOfWorkerNodesRq.innerHTML = Math.ceil((noOfSVC.value/actual.value)).toFixed(1)
 // console.log(masterNodePriceEl.textContent,noOfWorkerNodesRq.textContent,workerNodePriceEl.textContent,additionalStorageCost.textContent)
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       // +(noOfWorkerNodesRq.textContent * workerNodePriceEl.textContent)+1+additionalStorageCost.textContent).toFixed(4)
