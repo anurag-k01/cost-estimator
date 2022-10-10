@@ -50,7 +50,7 @@ function appendWorkerNodeData(data,region) {
     let flag = true;
     workerNodeInstanceType.innerHTML = ""
 
-    let dataWithSelectedRegion = data.filter((el)=>el.region == region )
+    let dataWithSelectedRegion = data.filter((el)=>el.region == region && el.size === 't3a.2xlarge')
     dataWithSelectedRegion.forEach((instType) => {
         let option = document.createElement('option');
         option.value = instType.size;
