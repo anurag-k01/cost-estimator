@@ -192,7 +192,7 @@
                     <input type="radio" id="radioo3" name="selectorr" class="selector-item_radio" checked>
                     <label for="radioo3" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
                     <input type="radio" id="radioo4" name="selectorr" class="selector-item_radio">
-                    <label for="radioo4" class="selector-item_label">No </label>
+                    <label for="radioo4" class="selector-item_label">No &nbsp;  </label>
                 </div>
               </div>
               <div id="EKSPrice">
@@ -236,7 +236,7 @@
                         <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
                         <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
                         <input type="radio" id="radio2" name="selector" class="selector-item_radio">
-                        <label for="radio2" class="selector-item_label">No </label>
+                        <label for="radio2" class="selector-item_label">No &nbsp; &nbsp; </label>
                     </div>
                   </div>
                   <div id="ELBPrice">
@@ -446,7 +446,7 @@ const instanceTypes = getData('./spot.json').then((response) => {
 
 
 radio1.addEventListener('click',()=>{
-  ELBPrice.innerHTML = 0
+  ELBPrice.innerHTML = 0.0000
 addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25.0000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
@@ -465,7 +465,7 @@ totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOf
 })
 
 radio3.addEventListener('click',()=>{
-  EKSPrice.innerHTML = 0
+  EKSPrice.innerHTML = 0.0000
   addtnlCost.innerHTML = (Number(addtnlCost.textContent) - 72.0000).toFixed(4)
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
