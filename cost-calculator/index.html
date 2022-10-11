@@ -23,7 +23,7 @@
     max="720"
     required
   /> </h5>
-  <div style="display:flex;margin:10px;">
+  <div style="display:flex;">
   <div class="regionDiv">
     <p>Select Region :</p>
   </div>
@@ -174,8 +174,8 @@
     </div>
     <div>
       <div class="servicesConfigDiv">
-        <div style="padding:10px;width:48%;">
-          <div class="mb-2">
+        <div style="padding:10px;width:58%;">
+          <div class="mb-2" style="width:50%;">
             <label class="form-label">Enter number of Services:</label>
             <input class="form-control" type="number" id="noOfSVCs" value="10" required/>
           </div>
@@ -183,10 +183,7 @@
             <div>Additional Storage cost for DBs</div>
             <div id="additionalStorageCostForDbs"></div>
           </div>
-          <div style="display: flex;padding:10px;">
-            <div>No. of worker nodes required</div>
-            <div id="noOfWorkerNodesRq"></div>
-          </div>
+    
           <div style="padding:10px;">
             <div>Do you already use a EKS cluster ?</div>
             <div id="IfEKSCluster"> 
@@ -203,6 +200,31 @@
               </div>
     
             
+            </div>
+          </div>
+      
+          <br />
+          <div style="padding:10px;">
+            <div>Additional Cost</div>
+            <div id="additionalCostValue">0.0000</div>
+          </div>
+          <div style="display: flex;padding:10px;">
+            <div>Per Service Cost (month)</div>
+            <div  id="serviceCost"></div>
+          </div>
+          <div style="display: flex;padding:10px;">
+              <div>Total Cost (month)</div>
+              <div id="totalCost"></div>
+            
+  
+          </div>
+     
+        </div>
+        <div style="width:60%;font-size:15px;">
+          <div class="servicesPerNodeDiv">
+            <div class="mb-2">
+              <label class="form-label">actual :</label>
+              <input class="form-control" type="number" id="actual" value = "12" required/>
             </div>
           </div>
           <div style="padding:10px;">
@@ -225,20 +247,9 @@
           
              </div>
           </div>
-          <br />
-          <div style="padding:10px;">
-            <div>Additional Cost</div>
-            <div id="additionalCostValue">0.0000</div>
-          </div>
           <div style="display: flex;padding:10px;">
-            <div>Per Service Cost (month)</div>
-            <div  id="serviceCost"></div>
-          </div>
-          <div style="display: flex;padding:10px;">
-              <div>Total Cost (month)</div>
-              <div id="totalCost"></div>
-            
-    
+            <div>No. of worker nodes required</div>
+            <div id="noOfWorkerNodesRq"></div>
           </div>
           <div style="display: flex;padding:10px;">
             <div>Per Service Cost (annual)</div>
@@ -249,14 +260,6 @@
               <div id="totalCostAnnual"></div>
             
     
-          </div>
-        </div>
-        <div>
-          <div class="servicesPerNodeDiv">
-            <div class="mb-2">
-              <label class="form-label">actual :</label>
-              <input class="form-control" type="number" id="actual" value = "12" required/>
-            </div>
           </div>
         </div>
       </div>
